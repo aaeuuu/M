@@ -216,8 +216,8 @@ def handle_aadi1(message):
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in aadi1_cooldown and (datetime.datetime.now() - aadi1_cooldown[user_id]).seconds < 5:
-                response = "You Are On Cooldown . Please Wait 5sec Before Running The /aadi1 Command Again."
+            if user_id in aadi1_cooldown and (datetime.datetime.now() - aadi1_cooldown[user_id]).seconds < 60:
+                response = "You Are On Cooldown . Please Wait 60sec Before Running The /aadi1 Command Again."
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
@@ -228,8 +228,8 @@ def handle_aadi1(message):
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 61:
-                response = "Error: Time interval must be less than 60."
+            if time > 801:
+                response = "Error: Time interval must be less than 800."
             else:
                 record_command_logs(user_id, '/aadi1', target, port, time)
                 log_command(user_id, target, port, time)
@@ -292,7 +292,7 @@ def show_help(message):
 @bot.message_handler(commands=['start'])
 def welcome_start(message):
     user_name = message.from_user.first_name
-    response = f'''ıllıllı⭐🌟 WELCOME DEAR DDOS USER 🌟⭐ıllıllı \n {user_name}! \n🄱🄶🄼🄸 🄺🄸 🄶🄰🄽🄳 🄼🄰🅁🄽🄴 🄰🄰 🄶🅈🄴😜
+    response = f'''ıllıllı⭐🌟 WELCOME DEAR DDOS USER 🌟⭐ıllıllı \n {user_name}! \nBOT SUPPORT 800 SEC DDOS ATTACK
 🤖Try To Run This Command : /help 
 '''
     bot.reply_to(message, response)
