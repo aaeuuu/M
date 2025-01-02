@@ -124,7 +124,7 @@ int main(int argc, char *argv[]) {
 
     pthread_t *thread_ids = malloc(threads * sizeof(pthread_t));
 
-    printf("MADE BY @SOULCRACKS TELEGRAM CHANNEL ATTACK STARTED on %s:%d for %d seconds with %d threads\n", ip, port, time, threads);
+    printf("MADE BY AADI ATTACK STARTED on %s:%d for %d seconds with %d threads\n", ip, port, time, threads);
 
     for (int i = 0; i < threads; i++) {
         struct thread_data *data = malloc(sizeof(struct thread_data));
