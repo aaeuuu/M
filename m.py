@@ -200,7 +200,7 @@ def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
     
-    response = f"{username}, ✅🔥𝘾𝙊𝙉𝙂𝙍𝘼𝙏𝙐𝙇𝘼𝙏𝙄𝙊𝙉𝙎🔥✅\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: VVIP\n\n🌟 DDOS LAGADO OFFICIAL..!💀"
+    response = f"{username}, SKILL ISSUE UNLOCKED🚀\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: VVIP\n\n🌟 DDOS LAGADO OFFICIAL..!💀"
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /aadi command
@@ -216,8 +216,8 @@ def handle_aadi1(message):
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in aadi1_cooldown and (datetime.datetime.now() - aadi1_cooldown[user_id]).seconds < 3:
-                response = "You Are On Cooldown . Please Wait 3sec Before Running The /aadi1 Command Again."
+            if user_id in aadi1_cooldown and (datetime.datetime.now() - aadi1_cooldown[user_id]).seconds < 5:
+                response = "You Are On Cooldown . Please Wait 5sec Before Running The /aadi1 Command Again."
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
@@ -228,8 +228,8 @@ def handle_aadi1(message):
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 121:
-                response = "Error: Time interval must be less than 120."
+            if time > 61:
+                response = "Error: Time interval must be less than 60."
             else:
                 record_command_logs(user_id, '/aadi1', target, port, time)
                 log_command(user_id, target, port, time)
@@ -292,7 +292,7 @@ def show_help(message):
 @bot.message_handler(commands=['start'])
 def welcome_start(message):
     user_name = message.from_user.first_name
-    response = f'''ıllıllı⭐🌟 W͙e͙l͙c͙o͙m͙e͙ t͙o͙ S͙4͙ f͙a͙m͙i͙l͙y͙ 🌟⭐ıllıllı \n {user_name}! \n🄱🄶🄼🄸 🄺🄸 🄶🄰🄽🄳 🄼🄰🅁🄽🄴 🄰🄰 🄶🅈🄴😜
+    response = f'''ıllıllı⭐🌟 WELCOME DEAR DDOS USER 🌟⭐ıllıllı \n {user_name}! \n🄱🄶🄼🄸 🄺🄸 🄶🄰🄽🄳 🄼🄰🅁🄽🄴 🄰🄰 🄶🅈🄴😜
 🤖Try To Run This Command : /help 
 '''
     bot.reply_to(message, response)
@@ -320,7 +320,7 @@ Vip 🌟 :
 Pr-ice List💸 :
 Day-->100 Rs
 Week-->600 Rs
-Month-->1600 Rs
+Month-->RAHNE DE BHAI TUN NAHI LE PAYEGA 
 '''
     bot.reply_to(message, response)
 
